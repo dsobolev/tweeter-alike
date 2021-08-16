@@ -7,7 +7,9 @@
                     @include('sidebar')
                 </div>
                 <div class="flex-1">tweets</div>
-                <div class="flex-1">friends</div>
+                <div class="flex-1">
+                    @include('friends')
+                </div>
             </div>
         </div>
     </div>
