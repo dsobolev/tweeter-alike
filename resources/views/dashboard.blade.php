@@ -1,11 +1,13 @@
 <x-app-layout>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    Place for changes
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex bg-white shadow-sm rounded-lg">
+                <div class="flex-1">
+                    @include('sidebar')
                 </div>
+                <div class="flex-1">tweets</div>
+                <div class="flex-1">friends</div>
             </div>
         </div>
     </div>
