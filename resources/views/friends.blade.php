@@ -6,7 +6,12 @@
     <nav>
         <ul>
             @foreach($friends as $friend)
-            <li class="block mb-4">
+            <li class="flex items-center mb-4">
+                <img
+                    src="https://i.pravatar.cc/40"
+                    alt="friend {{ $friend }}"
+                    class="rounded-full mr-2"
+                >
                 Friend Element No {{ $friend }}
             </li>
             @endforeach
