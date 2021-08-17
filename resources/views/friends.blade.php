@@ -6,7 +6,7 @@
     <h3 class="text-lg font-bold my-8">Friends</h2>
     <ul>
         @foreach($friends as $friend)
-            <x-friend :name="$friend" :icon="$icon" />
+            <x-friend :name="$friend" icon="https://i.pravatar.cc/40" />
         @endforeach
     </ul>
 </section>
