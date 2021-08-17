@@ -1,4 +1,4 @@
-<li class="flex items-center mb-4">
+<li class="flex items-center mb-4 text-sm">
     <img
         src="{{ $icon }}"
         alt="friend {{ $name }}"
