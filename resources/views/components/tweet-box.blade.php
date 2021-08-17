@@ -1,4 +1,4 @@
-<section class="border border-blue-400 rounded-lg mt-10 p-6">
+<section class="border border-blue-400 rounded-lg p-6">
     <form action="">
 
         <textarea

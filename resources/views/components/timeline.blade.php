@@ -12,7 +12,7 @@ $tweets = [
             'name' => 'second',
             'avatar' => 'https://i.pravatar.cc/30'
         ],
-        'text' => 'A piece of excitement news!!!'
+        'text' => 'A piece of excitement news!!!. I want to see the larger text than in the other examples to make it possible to check that my styling works. The main victim here is Flexbox. So lets see'
     ],
     [
         'user' => [
@@ -23,7 +23,7 @@ $tweets = [
     ]
 ]
 @endphp
-<section class="border border-gray-400 rounded-lg mt-4 p-6">
+<section class="border border-gray-400 rounded-lg mt-4">
     @foreach($tweets as $tweet)
         @php
             $avatar = $tweet['user']['avatar'];
