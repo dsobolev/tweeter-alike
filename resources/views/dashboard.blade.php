@@ -7,13 +7,11 @@
                     @include('sidebar')
                 </div>
 
-                <div class="flex-1">
-
+                <div class="flex-1 lg:mr-6">
                     <x-tweet-box />
-
-                    <div>timeline</div>
-
+                    <x-timeline />
                 </div>
+
                 <div class="lg:w-1/5">
                     @include('friends')
                 </div>
