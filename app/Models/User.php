@@ -47,4 +47,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tweet::class);
     }
+
+    public function timeline()
+    {
+        // TODO limits to followed ones
+        return Tweet::latest()->get();
+    }
 }

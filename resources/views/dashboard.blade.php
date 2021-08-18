@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-8">
             <div class="lg:flex bg-white shadow-sm rounded-lg pt-8">
@@ -9,7 +8,7 @@
 
                 <div class="flex-1 lg:mr-6">
                     <x-tweet-box />
-                    <x-timeline />
+                    <x-timeline :tweets="$tweets" />
                 </div>
 
                 <div class="lg:w-1/5">

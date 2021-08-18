@@ -9,7 +9,7 @@
     </aside>
 
     <main>
-        <h5 class="font-bold mb-2">{{ $name }}</h5>
+        <h5 class="font-bold mb-2">{{ $username }}</h5>
         <div class="text-sm">
             {{ $slot }}
         </div>

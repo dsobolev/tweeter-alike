@@ -1,36 +1,11 @@
-@php
-$tweets = [
-    [
-        'user' => [
-            'name' => 'first',
-            'avatar' => 'https://i.pravatar.cc/30'
-        ],
-        'text' => 'Some text'
-    ],
-    [
-        'user' => [
-            'name' => 'second',
-            'avatar' => 'https://i.pravatar.cc/30'
-        ],
-        'text' => 'A piece of excitement news!!!. I want to see the larger text than in the other examples to make it possible to check that my styling works. The main victim here is Flexbox. So lets see'
-    ],
-    [
-        'user' => [
-            'name' => 'another',
-            'avatar' => 'https://i.pravatar.cc/30'
-        ],
-        'text' => 'Politics jkfdls;jafkdl; jfkdsl jksdl fjsdakl'
-    ]
-]
-@endphp
 <section class="border border-gray-400 rounded-lg mt-4">
     @foreach($tweets as $tweet)
         @php
-            $avatar = $tweet['user']['avatar'];
-            $username = $tweet['user']['name'];
+            $avatar = 'https://i.pravatar.cc/30?u=' . $tweet->user->email;
+            $username = $tweet->user->name;
         @endphp
-        <x-tweet :avatar="$avatar" :name="$username">
-            {{ $tweet['text'] }}
+        <x-tweet :avatar="$avatar" :username="$username">
+            {{ $tweet->body }}
         </x-tweet>
     @endforeach
 </section>
