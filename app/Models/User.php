@@ -53,4 +53,9 @@ class User extends Authenticatable
         // TODO limits to followed ones
         return Tweet::latest()->get();
     }
+
+    public function getAvatarAttribute()
+    {
+        return 'https://i.pravatar.cc/40?u=' . $this->email;
+    }
 }
