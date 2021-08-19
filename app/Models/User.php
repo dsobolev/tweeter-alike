@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows');
+    }
+
     public function timeline()
     {
         // TODO limits to followed ones
