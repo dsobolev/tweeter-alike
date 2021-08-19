@@ -21,4 +21,7 @@ Route::get('/dashboard', [Controllers\MainController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
 
+Route::post('/tweets', [Controllers\TweetController::class, 'store'])
+    ->middleware(['auth']);
+
 require __DIR__.'/auth.php';
