@@ -50,13 +50,21 @@ class User extends Authenticatable
 
     public function follows()
     {
-        return $this->belongsToMany(User::class, 'follows');
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
+
+    public function follow(int $user_id)
+    {
+        return $this->follows()->attach($user_id);
     }
 
     public function timeline()
     {
-        // TODO limits to followed ones
-        return Tweet::latest()->get();
+        $ids = $this->follows
+            ->pluck('id')
+            ->push($this->id);
+
+        return Tweet::whereIn('user_id', $ids)->latest()->get();
     }
 
     public function getAvatarAttribute()
