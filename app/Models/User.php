@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function timeline()
     {
-        $ids = $this->follows
+        $ids = $this->follows()
             ->pluck('id')
             ->push($this->id);
 
