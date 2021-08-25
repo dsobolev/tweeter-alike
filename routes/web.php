@@ -27,9 +27,4 @@ Route::post('/tweets', [Controllers\TweetController::class, 'store'])
 Route::get('/profiles/{user}', [Controllers\ProfileController::class, 'show'])
     ->name('profiles.single');
 
-// Route::get('/profiles/{user}', function(App\Models\User $user){
-//     return $user;
-// });
-
-
 require __DIR__.'/auth.php';

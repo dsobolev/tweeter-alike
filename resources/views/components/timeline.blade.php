@@ -1,4 +1,4 @@
-<section class="border border-gray-400 rounded-lg mt-4">
+<section class="border border-gray-400 rounded-lg my-4">
     @foreach($tweets as $tweet)
         @php
             $avatar = $tweet->user->avatar;
