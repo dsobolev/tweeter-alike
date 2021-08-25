@@ -1,0 +1,1 @@
+Single Profile, {{ $user->username }}

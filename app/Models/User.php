@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
     ];
 
     /**
@@ -70,5 +71,10 @@ class User extends Authenticatable
     public function getAvatarAttribute()
     {
         return 'https://i.pravatar.cc/40?u=' . $this->email;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'username';
     }
 }

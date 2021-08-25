@@ -24,4 +24,12 @@ Route::get('/dashboard', [Controllers\MainController::class, 'index'])
 Route::post('/tweets', [Controllers\TweetController::class, 'store'])
     ->middleware(['auth']);
 
+Route::get('/profiles/{user}', [Controllers\ProfileController::class, 'show'])
+    ->name('profiles.single');
+
+// Route::get('/profiles/{user}', function(App\Models\User $user){
+//     return $user;
+// });
+
+
 require __DIR__.'/auth.php';

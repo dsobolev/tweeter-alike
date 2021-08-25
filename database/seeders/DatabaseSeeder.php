@@ -23,5 +23,10 @@ class DatabaseSeeder extends Seeder
         User::factory()
             ->has(Tweet::factory()->count(2))
             ->create();
+
+        User::factory()
+            ->has(Tweet::factory()->count(4))
+            ->create();
+
     }
 }
