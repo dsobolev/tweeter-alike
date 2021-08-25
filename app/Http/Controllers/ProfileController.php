@@ -9,7 +9,8 @@ class ProfileController extends Controller
     public function show(User $user)
     {
         return view('profiles.single', [
-            'user' => $user
+            'user' => $user,
+            'tweets' => $user->timeline()
         ]);
     }
 }
