@@ -2,14 +2,14 @@
 
     <aside class="mr-4 flex-shrink-0">
         <img
-            src="{{ $avatar }}"
+            src="{{ $user->avatar }}"
             alt="avatar"
             class="rounded-full mr-2"
         />
     </aside>
 
     <main>
-        <h5 class="font-bold mb-2">{{ $username }}</h5>
+        <h5 class="font-bold mb-2">{{ $user->name }}</h5>
         <div class="text-sm">
             {{ $slot }}
         </div>
