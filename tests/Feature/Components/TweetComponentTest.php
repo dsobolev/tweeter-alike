@@ -34,6 +34,14 @@ class TweetComponentTest extends TestCase
         $view->assertSee($tweetBody);
     }
 
+    public function test_component_renders_user_link()
+    {
+        $user = User::factory()->make();
+        $view = $this->buildComponent($user, 'Tweet Body');
+
+        $view->assertSee( route('profiles.single', $user) );
+    }
+
     private function buildComponent(User $user, string $body)
     {
         return $this->blade(
