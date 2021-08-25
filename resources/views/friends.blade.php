@@ -2,11 +2,7 @@
     <h3 class="text-lg font-bold my-2">Friends</h2>
     <ul>
         @foreach($user->follows as $friend)
-            @php
-                $name = $friend->name;
-                $icon = $friend->avatar;
-            @endphp
-            <x-friend :name="$name" :icon="$icon" />
+            <x-friend :user="$friend" />
         @endforeach
     </ul>
 </section>

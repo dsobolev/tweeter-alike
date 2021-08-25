@@ -3,18 +3,16 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\User;
 
 class Friend extends Component
 {
 
-    public $name;
+    public $user;
 
-    public $icon;
-
-    public function __construct($name, $icon)
+    public function __construct(User $user)
     {
-        $this->name = $name;
-        $this->icon = $icon;
+        $this->user = $user;
     }
 
     public function render()

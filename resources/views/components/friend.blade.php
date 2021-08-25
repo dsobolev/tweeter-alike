@@ -1,8 +1,8 @@
 <li class="flex items-center mb-4 text-sm">
     <img
-        src="{{ $icon }}"
-        alt="friend {{ $name }}"
+        src="{{ $user->avatar }}"
+        alt="friend {{ $user->name }}"
         class="rounded-full mr-2"
     >
-    {{ $name }}
+    {{ $user->name }}
 </li>
