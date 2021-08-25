@@ -25,6 +25,11 @@ class FriendComponentTest extends TestCase
 
     public function test_component_renders_user_link()
     {
-        $this->assertTrue(false);
+        $user = User::factory()->make();
+        $view = $this->component(Friend::class, [
+            'user' => $user
+        ]);
+
+        $view->assertSee( route('profiles.single', $user) );
     }
 }
