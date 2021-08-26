@@ -10,7 +10,7 @@ class ProfileController extends Controller
     {
         return view('profiles.single', [
             'user' => $user,
-            'tweets' => $user->timeline()
+            'tweets' => $user->tweets
         ]);
     }
 }
