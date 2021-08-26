@@ -61,6 +61,13 @@ class User extends Authenticatable
         'large' => 150
     ];
 
+    /**
+     * URL of service to get profile image (not square, like for 'pravatar')
+     * 
+     * @var string
+     */
+    private $profileImageBaseUrl = 'https://picsum.photos/seed/';
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
@@ -102,7 +109,7 @@ class User extends Authenticatable
 
     public function getProfileImageAttribute()
     {
-        return 'https://picsum.photos/seed/' . $this->username . '/750/220.webp';
+        return $this->profileImageBaseUrl . $this->username . '/750/220.webp';
     }
 
     public function getRouteKeyName()
