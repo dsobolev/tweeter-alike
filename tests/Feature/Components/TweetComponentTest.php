@@ -22,11 +22,15 @@ class TweetComponentTest extends TestCase
 
         $view->assertSee($nameToSee);
         $view->assertSee($user->avatar);
+
+        return $user;
     }
 
-    public function test_component_renders_body()
+    /**
+     * @depends test_component_renders_username_and_icon
+     */
+    public function test_component_renders_body(User $user)
     {
-        $user = User::factory()->make();
         $tweetBody = 'Tweet Body';
 
         $view = $this->buildComponent($user, $tweetBody);
@@ -34,7 +38,10 @@ class TweetComponentTest extends TestCase
         $view->assertSee($tweetBody);
     }
 
-    public function test_component_renders_user_link()
+    /**
+     * @depends test_component_renders_username_and_icon
+     */
+    public function test_component_renders_user_link(User $user)
     {
         $user = User::factory()->make();
         $view = $this->buildComponent($user, 'Tweet Body');

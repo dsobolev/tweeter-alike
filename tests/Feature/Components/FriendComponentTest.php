@@ -21,11 +21,15 @@ class FriendComponentTest extends TestCase
 
         $view->assertSee($nameToSee);
         $view->assertSee( $user->avatar );
+
+        return $user;
     }
 
-    public function test_component_renders_user_link()
+    /**
+     * @depends test_component_renders_name_and_icon_url
+     */
+    public function test_component_renders_user_link(User $user)
     {
-        $user = User::factory()->make();
         $view = $this->component(Friend::class, [
             'user' => $user
         ]);
