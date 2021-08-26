@@ -4,6 +4,7 @@ namespace Tests\Feature\Components;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Testing\TestView;
 use Tests\TestCase;
 
 use App\Models\User;
@@ -32,21 +33,22 @@ class TweetComponentTest extends TestCase
     public function test_component_renders_body(User $user)
     {
         $tweetBody = 'Tweet Body';
-
         $view = $this->buildComponent($user, $tweetBody);
 
         $view->assertSee($tweetBody);
+
+        return $view;
     }
 
     /**
      * @depends test_component_renders_username_and_icon
+     * @depends test_component_renders_body
      */
-    public function test_component_renders_user_link(User $user)
+    public function test_component_renders_user_link(User $user, TestView $view)
     {
-        $user = User::factory()->make();
-        $view = $this->buildComponent($user, 'Tweet Body');
+        $userProfileLink = route('profiles.single', $user);
 
-        $view->assertSee( route('profiles.single', $user) );
+        $view->assertSee($userProfileLink);
     }
 
     private function buildComponent(User $user, string $body)
