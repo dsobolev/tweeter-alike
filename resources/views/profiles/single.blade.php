@@ -7,6 +7,13 @@
                 </div>
 
                 <div class="flex-1 lg:mr-6">
+                    <header>
+                        <img
+                            src="{{ $user->profileImage }}"
+                            class=""
+                            alt="{{ $user->name }}"
+                        />
+                    </header>
                     <x-timeline :tweets="$tweets" />
                 </div>
 

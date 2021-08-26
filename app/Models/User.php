@@ -73,6 +73,11 @@ class User extends Authenticatable
         return 'https://i.pravatar.cc/40?u=' . $this->email;
     }
 
+    public function getProfileImageAttribute()
+    {
+        return 'https://picsum.photos/seed/' . $this->username . '/750/220.webp';
+    }
+
     public function getRouteKeyName()
     {
         return 'username';
