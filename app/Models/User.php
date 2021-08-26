@@ -44,6 +44,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * URL to retrieve free avatar
+     *
+     * @var string
+     */
+    private $avatarBaseUrl = 'https://i.pravatar.cc/';
+
+    /**
+     * Sizes of avatars used
+     *
+     * @var array
+     */
+    private $avatarSizes = [
+        'main' => 40,
+        'large' => 150
+    ];
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
@@ -70,7 +87,17 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return 'https://i.pravatar.cc/40?u=' . $this->email;
+        return $this->buildAvatarUrl($this->avatarBaseUrl, $this->avatarSizes['main']);
+    }
+
+    public function getAvatarLargeAttribute()
+    {
+        return $this->buildAvatarUrl($this->avatarBaseUrl, $this->avatarSizes['large']);;
+    }
+
+    private function buildAvatarUrl(string $baseUrl, int $size)
+    {
+        return $baseUrl . $size . '?u=' . $this->email;
     }
 
     public function getProfileImageAttribute()
