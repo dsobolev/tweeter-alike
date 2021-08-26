@@ -5,8 +5,11 @@
         </li>
         <li class="font-bold block mb-4">Second</li>
         <li class="font-bold block mb-4">Other</li>
-        <li class="font-bold block mb-4">
-            <a href="{{ route('profiles.single', auth()->user()) }}">Profile</a>
-        </li>
+
+        @if (Auth::check())
+            <li class="font-bold block mb-4">
+                <a href="{{ route('profiles.single', Auth::user()) }}">Profile</a>
+            </li>
+        @endif
     </ul>
 </nav>
