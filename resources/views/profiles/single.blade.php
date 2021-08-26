@@ -10,9 +10,19 @@
                     <header>
                         <img
                             src="{{ $user->profileImage }}"
-                            class=""
+                            class="w-full h-auto rounded-lg mb-4"
                             alt="{{ $user->name }}"
                         />
+                        <div class="flex justify-between">
+                            <div>
+                                <h2 class="text-lg font-bold">{{ $user->name }}</h2>
+                                <p>Joined {{ $user->created_at->diffForHumans() }}</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-white">Edit Profile</button>
+                                <button class="btn btn-blue">Follow Me</button>
+                            </div>
+                        </div>
                     </header>
                     <x-timeline :tweets="$tweets" />
                 </div>
