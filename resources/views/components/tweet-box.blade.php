@@ -28,7 +28,7 @@
                 alt="avatar"
                 class="rounded-full mr-2"
             />
-            <x-button class="bg-blue-400 shadow">Send</x-button>
+            <button class="btn btn-blue" type="submit">Send</button>
         </footer>
 
     </form>
