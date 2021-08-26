@@ -1,5 +1,5 @@
 .btn {
-    @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs uppercase shadow;
+    @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs uppercase ring-gray-300 shadow;
 }
 
 .btn:focus {
@@ -8,7 +8,7 @@
 
 /* --- Gray Button --- */
 .btn-gray {
-    @apply bg-gray-800 text-white ring-gray-300;
+    @apply bg-gray-800 text-white;
 }
 
 .btn-gray:hover {
@@ -18,9 +18,19 @@
 
 /* --- White Button --- */
 .btn-white {
-    @apply text-black ring-gray-300;
+    @apply text-black;
 }
 
 .btn-white:hover {
     @apply bg-gray-100;
+}
+
+
+/* --- Blue Button --- */
+.btn-blue {
+    @apply text-white bg-blue-400;
+}
+
+.btn-blue:hover {
+    @apply bg-blue-500;
 }
