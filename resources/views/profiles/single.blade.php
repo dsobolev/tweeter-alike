@@ -18,10 +18,14 @@
                                 <h2 class="text-lg font-bold">{{ $user->name }}</h2>
                                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
                             </div>
-                            <div>
-                                <button class="btn btn-white">Edit Profile</button>
-                                <button class="btn btn-blue">Follow Me</button>
-                            </div>
+
+                            @if (Auth::check())
+                                <div>
+                                    <button class="btn btn-white">Edit Profile</button>
+                                    <button class="btn btn-blue">Follow Me</button>
+                                </div>
+                            @endif
+
                         </div>
                         <p class="text-sm text-center my-6">Some words about the user. Like an into. Or just some kind of thoughts. Some words about the user. Like an into. Or just some kind of thoughts. Some words about the user. Like an into. Or just some kind of thoughts. Some words about the user. Like an into. Or just some kind of thoughts.</p>
                         <img
