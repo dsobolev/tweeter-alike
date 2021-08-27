@@ -21,7 +21,13 @@
 
                             @if (Auth::check())
                                 <div>
-                                    <button class="btn btn-white">Edit Profile</button>
+                                    <button
+                                        @click="console.log('CliCked')"
+                                        class="btn btn-white"
+                                        type="submit"
+                                    >
+                                        Edit Profile
+                                    </button>
                                     <button class="btn btn-blue">Follow Me</button>
                                 </div>
                             @endif
@@ -34,7 +40,7 @@
                             style="top: 38%; left: calc(50% - 75px)"
                         />
                     </header>
-                    <x-timeline :tweets="$tweets" />
+                    <x-timeline :tweets="$user->tweets" />
                 </div>
 
                 <div class="lg:w-1/5">
