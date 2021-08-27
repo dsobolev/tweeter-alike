@@ -17,12 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [Controllers\MainController::class, 'index'])
-    ->middleware(['auth'])
-    ->name('dashboard');
+Route::middleware('auth')->group(function(){
 
-Route::post('/tweets', [Controllers\TweetController::class, 'store'])
-    ->middleware(['auth']);
+    Route::get('/dashboard', [Controllers\MainController::class, 'index'])
+        ->name('dashboard');
+
+    Route::post('/tweets', [Controllers\TweetController::class, 'store']);
+});
 
 Route::get('/profiles/{user:username}', [Controllers\ProfileController::class, 'show'])
     ->name('profiles.single');
