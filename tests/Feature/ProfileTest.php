@@ -10,7 +10,7 @@ class ProfileTest extends TestCase
     public function test_single_profile_username()
     {
         $user = User::first();
-        $view = $this->view('profiles.single', ['user' => $user]);
+        $view = $this->view('profiles.single', ['user' => $user, 'tweets' => $user->tweets]);
 
         $view->assertSee( $user->username );
     }
