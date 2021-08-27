@@ -102,9 +102,4 @@ class User extends Authenticatable
     {
         return $this->profileImageBaseUrl . $this->username . '/750/220.webp';
     }
-
-    public function getRouteKeyName()
-    {
-        return 'username';
-    }
 }
