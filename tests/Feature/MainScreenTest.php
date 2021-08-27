@@ -9,6 +9,9 @@ use Tests\TestCase;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 
+/**
+ * @group auth
+ */
 class MainScreenTest extends TestCase
 {
     use RefreshDatabase;
