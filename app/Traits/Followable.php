@@ -14,4 +14,9 @@ trait Followable
     {
         return $this->follows()->attach($user->id);
     }
+
+    public function following(User $user)
+    {
+        return $this->follows->contains($user);
+    }
 }
