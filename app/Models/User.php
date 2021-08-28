@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -101,5 +102,10 @@ class User extends Authenticatable
     public function getProfileImageAttribute()
     {
         return $this->profileImageBaseUrl . $this->username . '/750/220.webp';
+    }
+
+    public function isMe()
+    {
+        return Auth::id() === $this->id;
     }
 }
