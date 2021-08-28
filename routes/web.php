@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function(){
         ->name('dashboard');
 
     Route::post('/tweets', [Controllers\TweetController::class, 'store']);
+
+    Route::post('/profiles/{user:username}/follow', [Controllers\ProfileController::class, 'follow'])
+        ->name('follow');
 });
 
 Route::get('/profiles/{user:username}', [Controllers\ProfileController::class, 'show'])

@@ -20,15 +20,22 @@
                             </div>
 
                             @if (Auth::check())
-                                <div>
+                                <div class="flex">
                                     <button
-                                        @click="console.log('CliCked')"
                                         class="btn btn-white"
                                         type="submit"
                                     >
                                         Edit Profile
                                     </button>
-                                    <button class="btn btn-blue">Follow Me</button>
+
+                                    <form action="{{ route('follow', $user) }}" method="POST">
+
+                                        @csrf
+
+                                        <button class="btn btn-blue" type="submit">
+                                            Follow Me
+                                        </button>
+                                    </form>
                                 </div>
                             @endif
 
