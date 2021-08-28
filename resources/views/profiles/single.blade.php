@@ -28,14 +28,29 @@
                                         Edit Profile
                                     </button>
 
-                                    <form action="{{ route('follow', $user) }}" method="POST">
+                                    @unless (Auth::user()->following($user) || $user->isMe())
+                                        <div x-data="{
+                                            show: true,
 
-                                        @csrf
+                                            async followUser(route) {
+                                                const response = await axios.post(route, {})
+                                                    .catch(e => console.log(e));
 
-                                        <button class="btn btn-blue" type="submit">
-                                            Follow Me
-                                        </button>
-                                    </form>
+                                                if (200 == response.status) {
+                                                    this.show = false;
+                                                }
+                                            }
+                                        }">
+                                            <input type="hidden" x-ref="route" value="{{ route('follow', $user) }}">
+                                            <button
+                                                x-show="show"
+                                                @click="await followUser($refs.route.value)"
+                                                class="btn btn-blue"
+                                            >
+                                                Follow Me
+                                            </button>
+                                        </div>
+                                    @endunless
                                 </div>
                             @endif
 
