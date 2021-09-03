@@ -15,6 +15,15 @@ trait Followable
         return $this->follows()->attach($user->id);
     }
 
+    public function toggleFollow(User $user)
+    {
+        if ($this->following($user)) {
+            return $this->unfollow($user);
+        } else {
+            return $this->follow($user);
+        }
+    }
+
     public function following(User $user)
     {
         return $this->follows->contains($user);
