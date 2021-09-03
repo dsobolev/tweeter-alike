@@ -19,4 +19,9 @@ trait Followable
     {
         return $this->follows->contains($user);
     }
+
+    public function unfollow(User $user)
+    {
+        return $this->follows()->detach($user->id);
+    }
 }

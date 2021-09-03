@@ -21,4 +21,11 @@ class ProfileController extends Controller
 
         return back();
     }
+
+    public function unfollow(Request $request, User $user)
+    {
+        Auth::user()->unfollow($user);
+
+        return back();
+    }
 }
