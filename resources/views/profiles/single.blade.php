@@ -22,18 +22,7 @@
                         </button>
 
                         @unless (Auth::user()->following($user) || $user->isMe())
-                            <div x-data="{
-                                show: true,
-
-                                async followUser(route) {
-                                    const response = await axios.post(route, {})
-                                        .catch(e => console.log(e));
-
-                                    if (200 == response.status) {
-                                        this.show = false;
-                                    }
-                                }
-                            }">
+                            <div x-data="followActions()">
                                 <input type="hidden" x-ref="route" value="{{ route('follow', $user) }}">
                                 <button
                                     x-show="show"
