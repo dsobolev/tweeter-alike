@@ -34,3 +34,13 @@
 .btn-blue:hover {
     @apply bg-blue-500;
 }
+
+
+/* --- Blue Button --- */
+.btn-red {
+    @apply text-white bg-red-400;
+}
+
+.btn-red:hover {
+    @apply bg-red-500;
+}

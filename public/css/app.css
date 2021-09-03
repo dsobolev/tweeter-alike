@@ -864,6 +864,20 @@ select {
   background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
 }
 
+/* --- Blue Button --- */
+
+.btn-red {
+  --tw-bg-opacity: 1;
+  background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.btn-red:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
