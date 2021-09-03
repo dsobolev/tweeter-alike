@@ -12,7 +12,7 @@
                     <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
                 </div>
 
-                @if (Auth::check())
+                @auth
                     <div class="flex">
                         <button
                             class="btn btn-white"
@@ -21,20 +21,31 @@
                             Edit Profile
                         </button>
 
-                        @unless (Auth::user()->following($user) || $user->isMe())
+                        @unless ($user->isMe())
                             <div x-data="followActions()">
-                                <input type="hidden" x-ref="route" value="{{ route('follow', $user) }}">
-                                <button
-                                    x-show="show"
-                                    @click="await followUser($refs.route.value)"
-                                    class="btn btn-blue"
-                                >
-                                    Follow Me
-                                </button>
+                                @if (Auth::user()->following($user))
+                                    <input type="hidden" x-ref="route" value="{{ route('unfollow', $user) }}">
+                                    <button
+                                        x-show="show"
+                                        @click="await unFollowUser($refs.route.value)"
+                                        class="btn btn-red"
+                                    >
+                                        Unfollow Me
+                                    </button>
+                                @else
+                                    <input type="hidden" x-ref="route" value="{{ route('follow', $user) }}">
+                                    <button
+                                        x-show="show"
+                                        @click="await followUser($refs.route.value)"
+                                        class="btn btn-blue"
+                                    >
+                                        Follow Me
+                                    </button>
+                                @endif
                             </div>
                         @endunless
                     </div>
-                @endif
+                @endauth
 
             </div>
             <p class="text-sm text-center my-6">Some words about the user. Like an into. Or just some kind of thoughts. Some words about the user. Like an into. Or just some kind of thoughts. Some words about the user. Like an into. Or just some kind of thoughts. Some words about the user. Like an into. Or just some kind of thoughts.</p>
