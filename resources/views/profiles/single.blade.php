@@ -23,25 +23,14 @@
 
                         @unless ($user->isMe())
                             <div x-data="followActions()">
-                                @if (Auth::user()->following($user))
-                                    <input type="hidden" x-ref="route" value="{{ route('unfollow', $user) }}">
-                                    <button
-                                        x-show="show"
-                                        @click="await unFollowUser($refs.route.value)"
-                                        class="btn btn-red"
-                                    >
-                                        Unfollow Me
-                                    </button>
-                                @else
-                                    <input type="hidden" x-ref="route" value="{{ route('follow', $user) }}">
-                                    <button
-                                        x-show="show"
-                                        @click="await followUser($refs.route.value)"
-                                        class="btn btn-blue"
-                                    >
-                                        Follow Me
-                                    </button>
-                                @endif
+                                <input type="hidden" x-ref="route" value="/profiles/{{ $user->username }}/follow">
+                                <button
+                                    x-show="show"
+                                    @click="await followUser($refs.route.value)"
+                                    class="btn {{ Auth::user()->following($user) ? 'btn-red' : 'btn-blue' }}"
+                                >
+                                    {{Auth::user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
+                                </button>
                             </div>
                         @endunless
                     </div>

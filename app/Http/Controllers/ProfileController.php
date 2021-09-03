@@ -17,15 +17,12 @@ class ProfileController extends Controller
 
     public function follow(Request $request, User $user)
     {
-        Auth::user()->follow($user);
+        if (Auth::user()->following($user)) {
+            Auth::user()->unfollow($user);
+        } else {
+            Auth::user()->follow($user);
+        }
 
-        return back();
-    }
-
-    public function unfollow(Request $request, User $user)
-    {
-        Auth::user()->unfollow($user);
-
-        return back();
+        return response('OK', 200);
     }
 }

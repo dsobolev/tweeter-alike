@@ -26,8 +26,6 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/profiles/{user:username}/follow', [Controllers\ProfileController::class, 'follow'])
         ->name('follow');
-    Route::post('/profiles/{user:username}/unfollow', [Controllers\ProfileController::class, 'unfollow'])
-        ->name('unfollow');
 });
 
 Route::get('/profiles/{user:username}', [Controllers\ProfileController::class, 'show'])

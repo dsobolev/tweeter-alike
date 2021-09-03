@@ -18,6 +18,9 @@ trait Followable
     public function following(User $user)
     {
         return $this->follows->contains($user);
+
+        // the more performant one
+        // $this->follows()->where('following_user_id', $user->id)->exists;
     }
 
     public function unfollow(User $user)
