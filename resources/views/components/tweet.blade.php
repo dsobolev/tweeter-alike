@@ -1,7 +1,7 @@
 <section class="flex mb-4 p-4 border-b border-b-gray-400">
 
     <aside class="mr-4 flex-shrink-0">
-        <a href="{{ route('profiles.single', $user) }}">
+        <a href="{{ $user->profilePath() }}">
             <img
                 src="{{ $user->avatar }}"
                 alt="avatar"
@@ -12,7 +12,7 @@
 
     <main>
         <h5 class="font-bold mb-2">
-            <a href="{{ route('profiles.single', $user) }}">
+            <a href="{{ $user->profilePath() }}">
                 {{ $user->name }}
             </a>
         </h5>

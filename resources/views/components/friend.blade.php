@@ -1,5 +1,5 @@
 <li class="mb-4 text-sm">
-    <a class="flex items-center" href="{{ route('profiles.single', $user) }}">
+    <a class="flex items-center" href="{{ $user->profilePath() }}">
         <img
             src="{{ $user->avatar }}"
             alt="friend {{ $user->name }}"

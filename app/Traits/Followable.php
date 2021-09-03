@@ -36,4 +36,9 @@ trait Followable
     {
         return $this->follows()->detach($user->id);
     }
+
+    public function followPath()
+    {
+        return route('follow', $this);
+    }
 }

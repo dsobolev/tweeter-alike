@@ -1,5 +1,5 @@
 <div x-data="followActions()">
-    <input type="hidden" x-ref="route" value="{{ route('follow', $user) }}">
+    <input type="hidden" x-ref="route" value="{{ $user->followPath() }}">
     <button
         x-show="show"
         @click="await followUser($refs.route.value)"
