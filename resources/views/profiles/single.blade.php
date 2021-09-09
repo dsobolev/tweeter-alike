@@ -21,12 +21,14 @@
 
                 @auth
                     <div class="flex">
-                        <button
-                            class="btn btn-white"
-                            type="submit"
-                        >
-                            Edit Profile
-                        </button>
+                        @if (Auth::user()->is($user))
+                            <button
+                                class="btn btn-white"
+                                type="submit"
+                            >
+                                Edit Profile
+                            </button>
+                        @endif
 
                         @unless (Auth::user()->is($user))
                             <x-follow-button :user="$user"/>
