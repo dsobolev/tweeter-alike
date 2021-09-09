@@ -1,4 +1,4 @@
-<section class="flex mb-4 p-4 border-b border-b-gray-400">
+<section class="flex mb-4 p-4 {{ $isLast ? '' : 'border-b border-b-gray-400' }}">
 
     <aside class="mr-4 flex-shrink-0">
         <a href="{{ $user->profilePath() }}">
