@@ -30,7 +30,7 @@
                             </button>
                         @endif
 
-                        @unless (Auth::user()->is($user))
+                        @unless (currentUser()->is($user))
                             <x-follow-button :user="$user"/>
                         @endunless
                     </div>
