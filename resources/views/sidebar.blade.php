@@ -8,7 +8,7 @@
 
         @if (Auth::check())
             <li class="font-bold block mb-4">
-                <a href="{{ Auth::user()->profilePath() }}">Profile</a>
+                <a href="{{ currentUser()->path() }}">Profile</a>
             </li>
         @endif
     </ul>
