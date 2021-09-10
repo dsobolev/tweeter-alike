@@ -28,7 +28,8 @@ Route::middleware('auth')->group(function(){
         ->name('follow');
 
     Route::get('/profiles/{user:username}/edit', [Controllers\ProfileController::class, 'edit'])
-        ->name('profiles.edit');
+        ->name('profiles.edit')
+        ->middleware('can:update,user');
 });
 
 Route::get('/profiles/{user:username}', [Controllers\ProfileController::class, 'show'])

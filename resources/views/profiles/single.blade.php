@@ -21,7 +21,7 @@
 
                 @auth
                     <div class="flex">
-                        @if (Auth::user()->is($user))
+                        @can('update', $user)
                             <form method="GET" action="{{ $user->path('edit') }}">
                                 <button
                                     class="btn btn-white"
@@ -30,7 +30,7 @@
                                     Edit Profile
                                 </button>
                             </form>
-                        @endif
+                        @endcan
 
                         @unless (currentUser()->is($user))
                             <x-follow-button :user="$user"/>
