@@ -21,4 +21,11 @@ class ProfileController extends Controller
 
         return response('OK', 200);
     }
+
+    public function edit(User $user)
+    {
+        abort_if( $user->isNot(Auth::user()), 403 );
+
+        return view('profiles.edit', compact('user'));
+    }
 }

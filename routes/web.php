@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/profiles/{user:username}/follow', [Controllers\ProfileController::class, 'follow'])
         ->name('follow');
+
+    Route::get('/profiles/{user:username}/edit', [Controllers\ProfileController::class, 'edit'])
+        ->name('profiles.edit');
 });
 
 Route::get('/profiles/{user:username}', [Controllers\ProfileController::class, 'show'])
