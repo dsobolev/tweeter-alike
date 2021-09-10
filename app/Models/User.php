@@ -84,9 +84,11 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id', $ids)->latest()->get();
     }
 
-    public function path()
+    public function path($name = 'single')
     {
-        return route('profiles.single', $this);
+        $routeName = 'profiles.' . $name;
+
+        return route($routeName, $this);
     }
 
     public function getAvatarAttribute()

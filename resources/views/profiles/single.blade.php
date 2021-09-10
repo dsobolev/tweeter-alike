@@ -22,12 +22,14 @@
                 @auth
                     <div class="flex">
                         @if (Auth::user()->is($user))
-                            <button
-                                class="btn btn-white"
-                                type="submit"
-                            >
-                                Edit Profile
-                            </button>
+                            <form method="GET" action="{{ $user->path('edit') }}">
+                                <button
+                                    class="btn btn-white"
+                                    type="submit"
+                                >
+                                    Edit Profile
+                                </button>
+                            </form>
                         @endif
 
                         @unless (currentUser()->is($user))
